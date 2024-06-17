@@ -9,7 +9,6 @@ public class Address {
         System.out.print("How many contacts would you like to create?: ");
         int numberOfContacts = input.nextInt();
         ContactBook[] contacts = new ContactBook[numberOfContacts];
-//        input.nextLine();
 
         for (int i = 0; i < contacts.length; i++) {
             contacts[i] = new ContactBook();
@@ -31,6 +30,7 @@ public class Address {
             input.nextLine();
 
             // TODO: make sure everything works like before
+            // TODO: make sure code don't run on null value
             switch (option) {
                 case "1":
                     System.out.print("Enter number of contact you would like to edit: ");
@@ -38,9 +38,6 @@ public class Address {
                     if (editIndex >= 0 && editIndex < numberOfContacts) {
                         contacts[editIndex].editContact();
                     }
-                    System.out.println("========================");
-                    System.out.println("Contact Edited!");
-                    System.out.println("========================");
                     break;
                 case "2":
                     System.out.print("Enter number of contact you would like to view: ");

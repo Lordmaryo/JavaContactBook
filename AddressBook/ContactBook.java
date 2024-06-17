@@ -7,6 +7,14 @@ public class ContactBook {
     String address;
     String phoneNumber;
     String email;
+    String[] contactDetails = new String[4];
+
+    private void updateTest() {
+        contactDetails[0] = this.name;
+        contactDetails[1] = this.address;
+        contactDetails[2] = this.phoneNumber;
+        contactDetails[3] = this.email;
+    }
 
     Scanner input = new Scanner(System.in);
 
@@ -22,6 +30,8 @@ public class ContactBook {
 
         System.out.print("Email: ");
         this.email = input.nextLine();
+
+        updateTest();
     }
 
     public void initiateDelete() {
@@ -40,24 +50,42 @@ public class ContactBook {
         this.address = null;
         this.phoneNumber = null;
         this.email = null;
+
+        updateTest();
     }
 
     public void editContact() {
-        System.out.print("Full Name: ");
-        this.name = input.nextLine();
+        boolean isContactNull = false;
 
-        System.out.print("Address: ");
-        this.address = input.nextLine();
+        for (String contact : contactDetails) {
+            if (contact != null) {
+                isContactNull = true;
+                break;
+            }
+        }
 
-        System.out.print("Phone number: ");
-        this.phoneNumber = input.nextLine();
+        if (isContactNull) {
+            System.out.print("Full Name: ");
+            this.name = input.nextLine();
 
-        System.out.print("Email: ");
-        this.email = input.nextLine();
+            System.out.print("Address: ");
+            this.address = input.nextLine();
+
+            System.out.print("Phone number: ");
+            this.phoneNumber = input.nextLine();
+
+            System.out.print("Email: ");
+            this.email = input.nextLine();
+            System.out.println("========================");
+            System.out.println("Contact Edited!");
+            System.out.println("========================");
+        } else System.out.println("Contact you selected does not Exist.");
+
+        updateTest();
+
     }
 
     public void displayContacts() {
-        String[] contactDetails = {this.name, this.address, this.phoneNumber, this.email};
         boolean isContactNull = false;
 
         for (String contact : contactDetails) {
@@ -71,6 +99,6 @@ public class ContactBook {
             for (String contact : contactDetails) {
                 System.out.println(contact);
             }
-        } else System.out.println("Contact you selected have been deleted.");
+        } else System.out.println("Contact you selected does not Exist.");
     }
 }
