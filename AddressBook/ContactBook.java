@@ -46,10 +46,22 @@ public class ContactBook {
     }
 
     private void deleteContact() {
-        this.name = null;
-        this.address = null;
-        this.phoneNumber = null;
-        this.email = null;
+        boolean isContactNull = false;
+
+        for (String contact : contactDetails) {
+            if (contact != null) {
+                isContactNull = true;
+                break;
+            }
+        }
+
+        if (isContactNull) {
+            this.name = null;
+            this.address = null;
+            this.phoneNumber = null;
+            this.email = null;
+
+        } else System.out.println("Contact you selected does not Exist.");
 
         updateContactDetails();
     }
