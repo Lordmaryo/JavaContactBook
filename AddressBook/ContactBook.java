@@ -9,7 +9,7 @@ public class ContactBook {
     String email;
     String[] contactDetails = new String[4];
 
-    private void updateTest() {
+    private void updateContactDetails() {
         contactDetails[0] = this.name;
         contactDetails[1] = this.address;
         contactDetails[2] = this.phoneNumber;
@@ -31,7 +31,7 @@ public class ContactBook {
         System.out.print("Email: ");
         this.email = input.nextLine();
 
-        updateTest();
+        updateContactDetails();
     }
 
     public void initiateDelete() {
@@ -51,7 +51,7 @@ public class ContactBook {
         this.phoneNumber = null;
         this.email = null;
 
-        updateTest();
+        updateContactDetails();
     }
 
     public void editContact() {
@@ -81,7 +81,7 @@ public class ContactBook {
             System.out.println("========================");
         } else System.out.println("Contact you selected does not Exist.");
 
-        updateTest();
+        updateContactDetails();
 
     }
 
