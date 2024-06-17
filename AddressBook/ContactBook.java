@@ -71,6 +71,6 @@ public class ContactBook {
             for (String contact : contactDetails) {
                 System.out.println(contact);
             }
-        } else System.out.println("Contact's been already deleted, create new contact.");
+        } else System.out.println("Contact you selected have been deleted.");
     }
 }
