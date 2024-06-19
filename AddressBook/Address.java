@@ -6,8 +6,14 @@ public class Address {
     public static void main(String[] args) {
         System.out.println("Welcome To Java Contact Book!!!");
         Scanner input = new Scanner(System.in);
-        System.out.print("How many contacts would you like to create?: ");
+        System.out.print("How many contacts would you like to create? (1-99): ");
         int numberOfContacts = input.nextInt();
+        if (numberOfContacts < 1){
+            System.out.println("No contact to create. Exiting...");
+            return;
+        } else if (numberOfContacts > 99) {
+            System.out.println("Out of bound. Exiting...");
+        }
         ContactBook[] contacts = new ContactBook[numberOfContacts];
 
         for (int i = 0; i < contacts.length; i++) {
@@ -29,8 +35,6 @@ public class Address {
             String option = String.valueOf(input.nextInt());
             input.nextLine();
 
-            // TODO: make sure everything works like before
-            // TODO: make sure code don't run on null value
             switch (option) {
                 case "1":
                     System.out.print("Enter number of contact you would like to edit: ");
