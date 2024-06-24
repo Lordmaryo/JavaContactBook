@@ -4,34 +4,37 @@ import java.util.Scanner;
 
 public class Address {
     public static void main(String[] args) {
-        System.out.println("Welcome To Java Contact Book!!!");
+        System.out.println("Welcome To Java Contact Book!");
         Scanner input = new Scanner(System.in);
         System.out.print("How many contacts would you like to create? (1-99): ");
         int numberOfContacts = input.nextInt();
-        if (numberOfContacts < 1){
+        boolean isOneContact = numberOfContacts == 1;
+        if (numberOfContacts < 1) {
             System.out.println("No contact to create. Exiting...");
             return;
-        } else if (numberOfContacts > 99) {
-            System.out.println("Out of bound. Exiting...");
+        }
+        if (numberOfContacts > 99) {
+            System.out.println("Number should be less than 99. Exiting...");
+            return;
         }
         ContactBook[] contacts = new ContactBook[numberOfContacts];
 
         for (int i = 0; i < contacts.length; i++) {
             contacts[i] = new ContactBook();
 
-            System.out.println("contact #" + (i + 1));
+            System.out.println(isOneContact ? "Contact" : "contact #" + (i + 1));
             contacts[i].addNewContact();
             System.out.println("========================");
-            System.out.println("Contact #" + (i + 1) + " Saved!");
+            System.out.println(isOneContact ? "Contact saved!" : "Contact #" + (i + 1) + " Saved!");
             System.out.println("========================");
         }
 
-        breakout:
         while (true) {
             System.out.println("1. Edit contact");
             System.out.println("2. View contact");
             System.out.println("3. Delete contact");
             System.out.println("4. Exit ");
+            System.out.print("Choose option: ");
             String option = String.valueOf(input.nextInt());
             input.nextLine();
 
@@ -57,11 +60,12 @@ public class Address {
                         contacts[deleteIndex].initiateDelete();
                     }
                     break;
-                default:
+                case "4":
                     System.out.println("Exiting...");
-                    break breakout;
+                    return;
+                default:
+                    System.out.println("Invalid input");
             }
         }
-
     }
 }

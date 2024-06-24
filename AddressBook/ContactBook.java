@@ -35,7 +35,7 @@ public class ContactBook {
     }
 
     public void initiateDelete() {
-        System.out.println("Are you sure you want to delete? (Y): ");
+        System.out.print("Are you sure you want to delete? (Y): ");
         String yes = input.nextLine().toUpperCase();
         if (yes.equals("Y")) {
             this.deleteContact();
@@ -94,7 +94,6 @@ public class ContactBook {
         } else System.out.println("Contact you selected does not Exist.");
 
         updateContactDetails();
-
     }
 
     public void displayContacts() {
