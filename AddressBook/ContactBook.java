@@ -21,13 +21,10 @@ public class ContactBook {
     public void addNewContact() {
         System.out.print("Full Name: ");
         this.name = input.nextLine();
-
         System.out.print("Address: ");
         this.address = input.nextLine();
-
         System.out.print("Phone number: ");
         this.phoneNumber = input.nextLine();
-
         System.out.print("Email: ");
         this.email = input.nextLine();
 

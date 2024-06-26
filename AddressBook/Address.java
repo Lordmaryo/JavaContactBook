@@ -22,14 +22,14 @@ public class Address {
         for (int i = 0; i < contacts.length; i++) {
             contacts[i] = new ContactBook();
 
-            System.out.println(isOneContact ? "Contact" : "contact #" + (i + 1));
+            System.out.println(isOneContact ? "Contact " : "contact #" + (i + 1));
             contacts[i].addNewContact();
             System.out.println("========================");
             System.out.println(isOneContact ? "Contact saved!" : "Contact #" + (i + 1) + " Saved!");
             System.out.println("========================");
         }
-
-        while (true) {
+        int limit = 3;
+        while (limit > 0) {
             System.out.println("1. Edit contact");
             System.out.println("2. View contact");
             System.out.println("3. Delete contact");
@@ -65,6 +65,7 @@ public class Address {
                     return;
                 default:
                     System.out.println("Invalid input");
+                    limit--;
             }
         }
     }
